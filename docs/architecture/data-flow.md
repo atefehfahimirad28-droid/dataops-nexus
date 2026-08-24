@@ -7,7 +7,6 @@ DataOps Nexus uses a layered data-processing model that separates ingestion, raw
 ## Planned Data Flow
 
 ```mermaid
-
 flowchart TD
     Source[CSV / JSON / API]
     API[FastAPI Ingestion]
@@ -41,8 +40,6 @@ flowchart TD
 
     Metadata --> Dashboard
     Metadata --> AI
-
-```
 
 ## Processing Stages
 
