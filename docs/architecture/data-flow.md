@@ -40,6 +40,7 @@ flowchart TD
 
     Metadata --> Dashboard
     Metadata --> AI
+```
 
 ## Processing Stages
 
