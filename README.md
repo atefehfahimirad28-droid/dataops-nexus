@@ -199,7 +199,14 @@ Development is performed through feature branches. Direct changes to `main` are 
 
 ## Documentation
 
-Detailed documentation will be stored in:
+Detailed documentation is available in:
+
+- [System Architecture](docs/architecture/system-architecture.md)
+- [Data Flow](docs/architecture/data-flow.md)
+- [Architecture Overview](docs/architecture/overview.md)
+- [Project Roadmap](docs/roadmap.md)
+
+Additional documentation will be added incrementally under:
 
 ```text
 docs/
@@ -207,7 +214,7 @@ docs/
 ├── adr/
 ├── diagrams/
 └── runbooks/
-```
+'''
 
 ## Roadmap
 
