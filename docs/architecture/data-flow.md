@@ -7,35 +7,41 @@ DataOps Nexus uses a layered data-processing model that separates ingestion, raw
 ## Planned Data Flow
 
 ```mermaid
+
 flowchart TD
     Source[CSV / JSON / API]
     API[FastAPI Ingestion]
     Event[Kafka Event]
+
     Bronze[Bronze Layer]
     Validation[Schema & Data Quality Validation]
-    Quarantine[Quarantine]
+    Quarantine[Quarantine Layer]
     Silver[Silver Layer]
     Gold[Gold Layer]
-    Metadata[(PostgreSQL Metadata)]
-    Dashboard[Dashboard]
+
+    Metadata[(PostgreSQL Metadata Store)]
+    Dashboard[Streamlit Dashboard]
     AI[AI Incident Investigator]
 
     Source --> API
     API --> Event
-    Event --> Bronze
+    API --> Metadata
 
+    Event --> Bronze
     Bronze --> Validation
 
     Validation -->|Valid| Silver
     Validation -->|Invalid| Quarantine
+    Validation --> Metadata
 
     Silver --> Gold
 
+    Gold --> Dashboard
     Gold --> Metadata
-    Validation --> Metadata
 
     Metadata --> Dashboard
     Metadata --> AI
+
 ```
 
 ## Processing Stages
